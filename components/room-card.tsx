@@ -36,7 +36,10 @@ export function RoomCard({ number, type, price, imageUrl }: RoomType) {
         <Image
           width={600}
           height={800}
-          src={imageUrl}
+          src={
+            imageUrl ||
+            "https://img.freepik.com/free-psd/isometric-bedroom-illustration_23-2151574005.jpg"
+          }
           alt={`${type} room`}
           placeholder="blur"
           blurDataURL="https://img.freepik.com/free-psd/isometric-bedroom-illustration_23-2151574005.jpg"
