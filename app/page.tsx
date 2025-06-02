@@ -3,6 +3,7 @@ import { cn } from "@/lib/cn";
 import { StatisticsCard } from "@/components/stats-card";
 import { RoomCard } from "@/components/room-card";
 import { rooms } from "@/constants/rooms";
+import { statistics } from "@/constants/stats";
 
 export default function Home() {
   return (
@@ -19,27 +20,14 @@ export default function Home() {
           </h2>
 
           <div className="grid gap-4 grid-cols-2 sm:gap-8 sm:grid-cols-4">
-            <StatisticsCard
-              title=""
-              amount={43}
-              className="bg-gradient-to-r from-blue-500 to-blue-600"
-            />
-
-            <StatisticsCard
-              title=" Deluxe"
-              amount={1}
-              className="bg-gradient-to-r from-green-500 to-green-600"
-            />
-            <StatisticsCard
-              title=" Single"
-              amount={8}
-              className="bg-gradient-to-r from-purple-500 to-purple-600"
-            />
-            <StatisticsCard
-              title=" Double"
-              amount={5}
-              className="bg-gradient-to-r from-orange-500 to-orange-600"
-            />
+            {statistics.map((stat) => (
+              <StatisticsCard
+                title={stat.title}
+                amount={stat.amount}
+                className={stat.className}
+                key={stat.key}
+              />
+            ))}
           </div>
         </header>
 
