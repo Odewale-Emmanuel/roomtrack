@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Font from "@/lib/font";
+import Font from "@/public/font";
 import "../styles/globals.css";
 import { cn } from "@/lib/cn";
 import Navbar from "@/components/navbar";
@@ -53,10 +53,10 @@ export default function RootLayout({
         className={cn(
           "min-h-screen flex flex-col",
           "bg-gray-100/80 text-black",
-          // "bg-linear-[-25deg,#2f2f2f_5%,pink_60%,#121212_90%,dodgerblue] backdrop-blur-3xl",
           "antialiased",
           Font.geistSans,
-          Font.inter
+          Font.inter,
+          Font.geistMono
         )}
       >
         <Navbar />

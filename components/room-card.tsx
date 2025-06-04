@@ -54,7 +54,7 @@ export function RoomCard({ number, type, price, imageUrl }: RoomType) {
             Room {number}
           </h3>
           <p className="text-sm  font-medium sm:font-semibold text-gray-700 sm:text-gray-600">
-            ${price.toFixed(2)}
+            ${Number(price).toFixed(2)}
           </p>
         </div>
         <p
