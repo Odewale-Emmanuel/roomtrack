@@ -6,30 +6,26 @@ export function RoomCard({ number, type, price, imageUrl }: RoomType) {
   type RoomTypeKeys = "single" | "deluxe" | "double";
   const roomType: Record<RoomTypeKeys, string> = {
     single:
-      "text-green-600 py-1 px-3 rounded-4xl bg-green-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
+      "text-purple-600 py-1 px-3 rounded-4xl bg-green-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
     deluxe:
-      "text-purple-600 py-1 px-3 rounded-4xl bg-purple-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
+      "text-green-600 py-1 px-3 rounded-4xl bg-purple-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
 
     double:
       "text-orange-600 py-1 px-3 rounded-4xl bg-orange-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
   };
 
   const roomHoverShadow: Record<RoomTypeKeys, string> = {
-    single: "shadow-green-600",
-    deluxe: "shadow-purple-600",
-    double: "shadow-orange-600",
+    single: "hover:shadow-purple-600/35",
+    deluxe: "hover:shadow-green-600/35",
+    double: "hover:shadow-orange-600/35",
   };
-  console.log(
-    `${roomHoverShadow[type.toLowerCase() as keyof typeof roomHoverShadow]}`
-  );
+
   return (
     <div
       className={cn(
         "overflow-hidden shadow rounded-2xl border border-gray-200 flex items-center gap-4 sm:gap-0 sm:items-start sm:flex-col p-4 sm:p-0",
         "hover:shadow-lg transition-all hover:scale-105",
-        type.toLowerCase() === "single" && "hover:shadow-green-600/30",
-        type.toLowerCase() === "deluxe" && "hover:shadow-purple-600/30",
-        type.toLowerCase() === "double" && "hover:shadow-orange-600/30"
+        roomHoverShadow[type.toLowerCase() as keyof typeof roomHoverShadow]
       )}
     >
       <figure className="overflow-hidden">
