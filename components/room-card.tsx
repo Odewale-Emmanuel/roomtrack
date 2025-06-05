@@ -1,30 +1,14 @@
 import { cn } from "@/lib/cn";
 import Image from "next/image";
 import { RoomType } from "@/types/room";
+import { roomHoverShadow, roomTypeClassName } from "@/constants/rooms";
 
 export function RoomCard({ number, type, price, imageUrl }: RoomType) {
-  type RoomTypeKeys = "single" | "deluxe" | "double";
-  const roomType: Record<RoomTypeKeys, string> = {
-    single:
-      "text-purple-600 py-1 px-3 rounded-4xl bg-green-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
-    deluxe:
-      "text-green-600 py-1 px-3 rounded-4xl bg-purple-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
-
-    double:
-      "text-orange-600 py-1 px-3 rounded-4xl bg-orange-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
-  };
-
-  const roomHoverShadow: Record<RoomTypeKeys, string> = {
-    single: "hover:shadow-purple-600/35",
-    deluxe: "hover:shadow-green-600/35",
-    double: "hover:shadow-orange-600/35",
-  };
-
   return (
     <div
       className={cn(
         "overflow-hidden shadow rounded-2xl border border-gray-200 flex items-center gap-4 sm:gap-0 sm:items-start sm:flex-col p-4 sm:p-0",
-        "hover:shadow-lg transition-all hover:scale-105",
+        "hover:shadow-lg transition-all hover:scale-105 group",
         roomHoverShadow[type.toLowerCase() as keyof typeof roomHoverShadow]
       )}
     >
@@ -40,7 +24,7 @@ export function RoomCard({ number, type, price, imageUrl }: RoomType) {
           placeholder="blur"
           blurDataURL="https://img.freepik.com/free-psd/isometric-bedroom-illustration_23-2151574005.jpg"
           loading="lazy"
-          className="w-24 aspect-square object-cover rounded-lg sm:rounded-none sm:w-full sm:aspect-auto sm:object-contain transition-all hover:scale-110"
+          className="w-24 aspect-square object-cover rounded-lg sm:rounded-none sm:w-full sm:aspect-auto sm:object-contain transition-all sm:group-hover:scale-110"
         />
       </figure>
 
@@ -56,8 +40,9 @@ export function RoomCard({ number, type, price, imageUrl }: RoomType) {
         <p
           className={cn(
             "text-sm",
-            roomType[type.toLowerCase() as keyof typeof roomType] ||
-              "text-gray-600"
+            roomTypeClassName[
+              type.toLowerCase() as keyof typeof roomTypeClassName
+            ] || "text-gray-600"
           )}
         >
           {type}

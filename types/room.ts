@@ -7,3 +7,6 @@ export type RoomType = {
   imageUrl?: string | StaticImageData;
   key?: number | string;
 };
+
+export type RoomTypeKeys = "single" | "deluxe" | "double";
+export type RoomTypeRecord = Record<RoomTypeKeys, string>;

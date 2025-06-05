@@ -1,4 +1,4 @@
-import type { RoomType } from "@/types/room";
+import type { RoomType, RoomTypeKeys } from "@/types/room";
 
 export const rooms: RoomType[] = [
   {
@@ -86,3 +86,19 @@ export const rooms: RoomType[] = [
       "https://img.freepik.com/free-photo/cozy-studio-apartment-with-bedroom-living-space_1262-12323.jpg",
   },
 ];
+
+export const roomTypeClassName: Record<RoomTypeKeys, string> = {
+  single:
+    "text-purple-600 py-1 px-3 rounded-4xl bg-green-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
+  deluxe:
+    "text-green-600 py-1 px-3 rounded-4xl bg-purple-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
+
+  double:
+    "text-orange-600 py-1 px-3 rounded-4xl bg-orange-600/5 sm:bg-transparent sm:rounded-none sm:p-0",
+};
+
+export const roomHoverShadow: Record<RoomTypeKeys, string> = {
+  single: "hover:shadow-purple-600/35",
+  deluxe: "hover:shadow-green-600/35",
+  double: "hover:shadow-orange-600/35",
+};
