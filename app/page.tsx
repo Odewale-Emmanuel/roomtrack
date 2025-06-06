@@ -57,6 +57,16 @@ function handleFormSubmit(
   setNewRoom: React.Dispatch<React.SetStateAction<RoomType>>
 ): void {
   e.preventDefault();
+
+  const roomCheck = roomsList.find((room) => room.number === newRoom.number);
+
+  if (roomCheck) {
+    alert(`Room ${newRoom.number} Already Exist`);
+    console.warn("Trying to add a room that already exits");
+    console.info("Try a new or different room number");
+    return;
+  }
+
   handleAddNewRoom(roomsList, newRoom, setRoomList);
   e.currentTarget.reset();
   setNewRoom({
@@ -158,27 +168,32 @@ export default function Home() {
                   </span>
                 </h3>
                 <label
-                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.5fr] sm:items-center"
+                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.3fr] sm:items-center"
                   htmlFor="number"
                 >
-                  Room Number:{" "}
+                  <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']">
+                    Room Number:
+                  </span>
                   <input
                     onChange={(e) =>
                       handleUpdateNewRoom(e, newRoom, setNewRoom)
                     }
+                    placeholder="e.g. 101"
                     type="number"
                     name="number"
                     id="number"
                     min={100}
                     required
-                    className="border border-gray-300 grow-1 rounded-md p-2"
+                    className="border border-gray-300 grow-1 rounded-md p-2 placeholder:text-sm"
                   />
                 </label>
                 <label
-                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.5fr] sm:items-center"
+                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.3fr] sm:items-center"
                   htmlFor="type"
                 >
-                  Room Type:{" "}
+                  <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']">
+                    Room Type:
+                  </span>
                   <select
                     onChange={(e) =>
                       handleUpdateNewRoom(e, newRoom, setNewRoom)
@@ -195,34 +210,38 @@ export default function Home() {
                   </select>
                 </label>
                 <label
-                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.5fr] sm:items-center"
+                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.3fr] sm:items-center"
                   htmlFor="price"
                 >
-                  Price:{" "}
+                  <span className="text-gray-700 after:ml-0.5 after:text-red-500 after:content-['*']">
+                    Price:
+                  </span>
                   <input
                     onChange={(e) =>
                       handleUpdateNewRoom(e, newRoom, setNewRoom)
                     }
+                    placeholder="e.g. 150"
                     type="text"
                     name="price"
                     id="price"
                     required
-                    className="border border-gray-300 grow-1 rounded-md p-2"
+                    className="border border-gray-300 grow-1 rounded-md p-2 placeholder:text-sm"
                   />
                 </label>
                 <label
-                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.5fr] sm:items-center"
+                  className="flex flex-col gap-2 sm:grid sm:grid-cols-[1fr_2.3fr] sm:items-center"
                   htmlFor="imageUrl"
                 >
-                  Image URL:{" "}
+                  <span className="text-gray-700">Image URL:</span>
                   <input
                     onChange={(e) =>
                       handleUpdateNewRoom(e, newRoom, setNewRoom)
                     }
+                    placeholder="img.freepik.com/free-photo/..."
                     type="url"
                     name="imageUrl"
                     id="imageUrl"
-                    className="border border-gray-300 grow-1 rounded-md p-2"
+                    className="border border-gray-300 grow-1 rounded-md p-2 placeholder:text-sm"
                   />
                 </label>
                 <div className="flex justify-end">
@@ -239,17 +258,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-3 md:grid-cols-4">
             {roomsList &&
-              [...roomsList]
-                .reverse()
-                .map((room: RoomType) => (
-                  <RoomCard
-                    number={room.number}
-                    type={room.type}
-                    price={room.price}
-                    imageUrl={room.imageUrl}
-                    key={room.number}
-                  />
-                ))}
+              [...roomsList].reverse().map((room: RoomType) => (
+                <RoomCard
+                  number={room.number}
+                  type={room.type}
+                  price={room.price}
+                  imageUrl={room.imageUrl}
+                  key={room.number}
+                  handleDelete={() => {
+                    setRoomList((prevRooms) =>
+                      prevRooms.filter(
+                        (preRoom) => preRoom.number !== room.number
+                      )
+                    );
+                  }}
+                />
+              ))}
           </div>
         </section>
       </div>

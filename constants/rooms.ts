@@ -27,7 +27,7 @@ export const rooms: RoomType[] = [
     type: "Double",
     price: 170,
     imageUrl:
-      "https://img.freepik.com/free-photo/one-king-size-bed-hotel-room_114579-12159.jpg",
+      "https://img.freepik.com/free-photo/bangkok-thailand-august-12-2016-beautiful-luxury-bedroom-int_1203-2724.jpg",
   },
   {
     number: 105,
@@ -62,7 +62,7 @@ export const rooms: RoomType[] = [
     type: "Deluxe",
     price: 270,
     imageUrl:
-      "https://img.freepik.com/free-photo/bangkok-thailand-august-12-2016-beautiful-luxury-bedroom-int_1203-2724.jpg",
+      "https://img.freepik.com/free-photo/luxury-classic-modern-bedroom-suite-hotel_105762-1787.jpg",
   },
   {
     number: 110,
