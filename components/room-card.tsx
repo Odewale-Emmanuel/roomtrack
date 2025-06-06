@@ -19,7 +19,7 @@ export function RoomCard({
         roomHoverShadow[type.toLowerCase() as keyof typeof roomHoverShadow]
       )}
     >
-      <figure className="overflow-hidden">
+      <figure className="overflow-hidden relative">
         <Image
           width={600}
           height={800}
@@ -34,7 +34,7 @@ export function RoomCard({
           className="w-24 aspect-square object-cover rounded-lg sm:rounded-none sm:w-full sm:aspect-auto sm:object-contain transition-all duration-[300ms] sm:group-hover:scale-110"
         />
         <button
-          className="hidden sm:inline-block absolute top-3 right-3 text-xl text-red-500 bg-white/80 rounded-full p-1 hover:bg-red-400 hover:text-white"
+          className="hidden group-hover:inline-block absolute top-3 right-3 text-xl text-red-500 bg-white/80 rounded-full p-1 hover:bg-red-400 hover:text-white"
           aria-label="Delete Room"
           title="Delete Room"
           onClick={handleDelete}
