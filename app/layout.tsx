@@ -52,7 +52,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen flex flex-col",
-          "bg-gray-100/80 text-black",
+          "bg-gray-100/80 dark:bg-black/90 text-black",
           "antialiased",
           Font.geistSans,
           Font.inter,
