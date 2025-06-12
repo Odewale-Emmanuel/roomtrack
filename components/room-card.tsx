@@ -30,7 +30,7 @@ export function RoomCard({
           <div
             className={cn(
               "overflow-hidden shadow rounded-2xl border border-gray-200 dark:border-transparent dark:bg-black/25 dark:shadow-black/50 dark:shadow-xl dark:backdrop-blur-sm flex items-center gap-4 sm:gap-0 sm:items-start sm:flex-col p-4 sm:p-0",
-              "hover:shadow-lg transition-all duration-[500ms] hover:scale-105 group",
+              "hover:shadow-lg transition-all duration-[500ms] hover:scale-105 group hover:cursor-pointer",
               roomHoverShadow[
                 type.toLowerCase() as keyof typeof roomHoverShadow
               ]
@@ -54,7 +54,7 @@ export function RoomCard({
                 )}
               />
               <button
-                className="hidden sm:group-hover:inline-block absolute top-3 right-3 text-xl text-red-500 bg-white/80 rounded-full p-1 hover:bg-red-400 hover:text-white"
+                className="hidden sm:group-hover:inline-block absolute top-3 right-3 text-xl text-red-500 bg-white/80 rounded-full p-1 hover:bg-red-400 hover:text-white group-hover:cursor-pointer"
                 aria-label="Delete Room"
                 title="Delete Room"
                 onClick={handleClick}

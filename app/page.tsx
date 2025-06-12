@@ -141,7 +141,7 @@ export default function Home() {
             </h2>
 
             <button
-              className="border border-blue-600 dark:border-white text-blue-600 dark:text-white hover:bg-gradient-to-r from-blue-500 to-blue-600 dark:from-transparent dark:to-transparent dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-transparent  text-sm hover:font-bold px-2 py-1 sm:px-4 sm:py-2 rounded-sm sm:rounded-md"
+              className="border border-blue-600 dark:border-white text-blue-600 dark:text-white hover:bg-gradient-to-r from-blue-500 to-blue-600 dark:from-transparent dark:to-transparent dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-transparent  text-sm hover:font-bold px-2 py-1 sm:px-4 sm:py-2 rounded-sm sm:rounded-md hover:cursor-pointer"
               onClick={handleOpenDialog}
               type="button"
               aria-label="Add New Room"
@@ -253,7 +253,7 @@ export default function Home() {
                 <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="bg-blue-600 text-white dark:text-black dark:bg-white dark:hover:bg-white/80 rounded-md px-4 py-2 w-full hover:bg-blue-600/80 font-semibold"
+                    className="bg-blue-600 text-white dark:text-black dark:bg-white dark:hover:bg-white/80 rounded-md px-4 py-2 w-full hover:bg-blue-600/80 hover:cursor-pointer font-semibold"
                   >
                     Add Room
                   </button>
